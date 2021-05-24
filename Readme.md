@@ -1,5 +1,9 @@
 # Dockerized Chatbot using Kafka: 
-![](chatbot_calcul_distribué.gif)
+
+<p align="center">
+  <img src="chatbot_calcul_distribué.gif" alt="animated" />
+
+</p>
 
 To run the project make sure you have a `docker` and `docker-compose` installed. 
 
