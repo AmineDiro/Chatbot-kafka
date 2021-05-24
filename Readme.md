@@ -1,7 +1,7 @@
 # Dockerized Chatbot using Kafka: 
 
 <p align="center">
-  <img src="chatbot_calcul_distribué.gif" alt="animated" />
+  <img src="demo.gif" alt="animated" />
 
 </p>
 
