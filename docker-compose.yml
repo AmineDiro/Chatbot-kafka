@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  kafka:
+    environment:
+      HOSTNAME_COMMAND: "route -n | awk '/UG[ \t]/{print $$2}'"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    image: wurstmeister/kafka
+    ports:
+      - "9092"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+    restart: always
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    restart: always
+
+  app:
+    build: ./app
+    ports:
+     - "80:80"
+    depends_on:
+     - kafka
+    restart: always
+    environment: 
+      TRANSACTIONS_TOPIC: test
+      KAFKA_BROKER_URL: kafka:9092
